@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class ControllingLight : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class ControllingLight : MonoBehaviour
             currentTime = 0;
             // You might want to add logic here for what happens when the countdown reaches zero
             // For example, stopping the countdown or triggering another action.
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         myLight.pointLightOuterRadius = currentTime; // Update the light's outer radius directly
