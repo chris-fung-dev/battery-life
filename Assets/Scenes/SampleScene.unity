@@ -826,6 +826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1996193403}
   - component: {fileID: 1996193404}
+  - component: {fileID: 1996193405}
   m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
@@ -916,7 +917,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 4.16
+  m_PointLightOuterRadius: 2
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -927,6 +928,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1996193405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996193402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b9b525c60bd41aaaaf36efae99484e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 0
 --- !u!1 &2072115949
 GameObject:
   m_ObjectHideFlags: 0
