@@ -12,6 +12,7 @@ public class BatteryAdd : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
            Light.AddTime();
+           Destroy(gameObject);
         }
     }
 }
