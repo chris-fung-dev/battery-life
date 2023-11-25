@@ -9,6 +9,9 @@ public class BatteryAdd : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Light.AddTime();
+        if (other.gameObject.CompareTag("Player"))
+        {
+           Light.AddTime();
+        }
     }
 }

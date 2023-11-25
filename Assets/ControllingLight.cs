@@ -9,7 +9,7 @@ public class ControllingLight : MonoBehaviour
     private Light2D myLight; // Reference to the 2D Light component
     public float currentTime = 0f;
     private float startingTime = 5f;
-    private float BatteryTimeAdd;
+    private float BatteryTimeAdd = 5f;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public class ControllingLight : MonoBehaviour
 
     public void AddTime()
     {
-        currentTime += BatteryTimeAdd;
+        currentTime = BatteryTimeAdd;
     }
 }
 
