@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 # Mac Folder
 .DS_Store
+
+.vsconfig
