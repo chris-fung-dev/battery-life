@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Scenes.Scripts
@@ -8,6 +9,7 @@ namespace Scenes.Scripts
         [SerializeField] private float jumpy;
         private Rigidbody2D _body;
         private bool _isJumping;
+        public Animator anim;
 
         private void Awake()
 
@@ -18,19 +20,45 @@ namespace Scenes.Scripts
         private void Update()
         {
             _body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, _body.velocity.y);
+         
+            
+
+            
 
             if (Input.GetKey(KeyCode.Space) && !_isJumping)
             { 
                 _body.velocity = new Vector2(_body.velocity.x,jumpy);
                 _isJumping = true;
             }
+
+            if (_isJumping)
+            {
+                anim.SetBool("Jump", true);
+            }
         }
+
+        private void FixedUpdate()
+        {
+            float move = Input.GetAxis("Horizontal");
+
+            // Check if the player is moving horizontally
+            if (Mathf.Abs(move) > 0)
+            {
+                anim.SetBool("Run", true);
+            }
+            else
+            {
+                anim.SetBool("Run", false);
+            }
+        }
+
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Ground"))
             {
                 _isJumping = false;
+                anim.SetBool("Jump", false);
             }
             
         }
