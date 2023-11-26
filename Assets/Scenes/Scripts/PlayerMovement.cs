@@ -10,6 +10,8 @@ namespace Scenes.Scripts
         private Rigidbody2D _body;
         private bool _isJumping;
         public Animator anim;
+        public AudioSource JumpSound;
+        public int SoundToken;
 
         private void Awake()
 
@@ -34,6 +36,11 @@ namespace Scenes.Scripts
             if (_isJumping)
             {
                 anim.SetBool("Jump", true);
+                if (SoundToken == 1)
+                {
+                    JumpSound.Play();
+                }
+                SoundToken =- 1;
             }
         }
 
@@ -59,6 +66,7 @@ namespace Scenes.Scripts
             {
                 _isJumping = false;
                 anim.SetBool("Jump", false);
+                SoundToken =+ 1;
             }
             
         }
