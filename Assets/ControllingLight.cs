@@ -9,8 +9,8 @@ public class ControllingLight : MonoBehaviour
     // Public variable to change the outer radius in the Inspector
     private Light2D myLight; // Reference to the 2D Light component
     public float currentTime = 0f;
-    private float startingTime = 5f;
-    private float BatteryTimeAdd = 5f;
+    private float startingTime = 7f;
+    private float BatteryTimeAdd = 7f;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class ControllingLight : MonoBehaviour
 
     void Update()
     {
-        currentTime -= 0.3f * Time.deltaTime; // Subtract deltaTime directly
+        currentTime -= 0.5f * Time.deltaTime; // Subtract deltaTime directly
 
         if (currentTime <= 0)
         {
