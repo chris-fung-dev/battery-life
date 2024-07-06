@@ -45,6 +45,7 @@ jobs:
           path: build
 
   deploy:
+    needs: build
     strategy:
       fail-fast: true
       matrix:
