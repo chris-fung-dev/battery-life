@@ -45,7 +45,6 @@ jobs:
           path: build
 
   deploy:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
