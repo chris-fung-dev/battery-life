@@ -41,7 +41,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Build
+          name: GameBuild
           path: build
 
   deploy:
@@ -56,7 +56,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2.0.8
         with:
-          name: ${{ matrix.channel }}
+          name: GameBuild
           path: build/${{ matrix.channel }}
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
