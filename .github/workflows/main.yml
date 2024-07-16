@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy - Itch.io ${{ matrix.template }}
     steps:
-      - uses: actions/download-artifact@v2.0.8
+      - uses: actions/download-artifact@v4
         with:
           name: GameBuild
           path: build/${{ matrix.channel }}
@@ -66,4 +66,3 @@ jobs:
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: ${{ matrix.channel }}
           # buildNumber: ${{ needs.version.outputs.version_hash }}
-      
