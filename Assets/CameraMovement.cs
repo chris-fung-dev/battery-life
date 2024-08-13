@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
 
     [SerializeField] private Transform target;
-    
+
 
     // Update is called once per frame
     void Update()
