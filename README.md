@@ -2,8 +2,6 @@
 
 [![Static Badge][itch-badge]][itch-game] [![Unity Build][unity-build-badge]][unity-build]
 
-<!--Add Gif or image -->
-
 ![Screenshot](/docs/images/battery-life-screenshot.png)
 
 ## About
