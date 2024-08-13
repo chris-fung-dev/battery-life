@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.Space) && !_isJumping)
-        { 
+        {
             _body.velocity = new Vector2(_body.velocity.x, jumpy);
             _isJumping = true;
         }
