@@ -15,12 +15,16 @@ jobs:
         with:
           lfs: true
 
-      - uses: actions/cache@v4
+      - name: Cache
+        uses: actions/cache@v4
         with:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
+
+      - name: Super-Linter
+        uses: super-linter/super-linter@v6.8.0
 
       - name: Build
         uses: game-ci/unity-builder@v4
