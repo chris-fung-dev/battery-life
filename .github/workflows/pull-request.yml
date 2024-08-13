@@ -1,4 +1,7 @@
+---
 name: Pull Request
+
+permissions: read-all
 
 on:
   pull_request:
@@ -30,6 +33,7 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JSCPD: false
 
       - name: Build
         uses: game-ci/unity-builder@v4

@@ -1,4 +1,7 @@
+---
 name: Release
+
+permissions: read-all
 
 on:
   push:
@@ -51,7 +54,7 @@ jobs:
         channel:
           - webgl
     runs-on: ubuntu-latest
-    name: Deploy - Itch.io ${{ matrix.template }}
+    name: Deploy - Itch.io ${{ matrix.channel }}
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v4
@@ -62,7 +65,7 @@ jobs:
         uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-          gameData: ./build/${{ matrix.template }}
+          gameData: ./build/${{ matrix.channel }}
           itchUsername: ${{ env.ITCH_USERNAME }}
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: ${{ matrix.channel }}
