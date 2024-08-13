@@ -25,6 +25,10 @@ jobs:
 
       - name: Super-Linter
         uses: super-linter/super-linter@v6.8.0
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: true
 
       - name: Build
         uses: game-ci/unity-builder@v4
