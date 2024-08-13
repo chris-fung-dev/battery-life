@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: WebGL Build
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,14 +19,6 @@ jobs:
           lfs: true
           fetch-depth: 0
 
-      - name: Cache
-        uses: actions/cache@v4
-        with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-
-
       - name: Super-Linter
         uses: super-linter/super-linter@v6.8.0
         env:
@@ -34,18 +26,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_JSCPD: false
-
-      - name: Build
-        uses: game-ci/unity-builder@v4
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          targetPlatform: WebGL
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: GameBuild
-          path: build
