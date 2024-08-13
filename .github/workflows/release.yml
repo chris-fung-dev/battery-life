@@ -1,13 +1,11 @@
-name: Unity Build
+name: Release
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
+# UNIQUE PER GAME
 env:
   ITCH_USERNAME: chris-fung-dev
   ITCH_GAME_ID: battery-life
@@ -22,7 +20,8 @@ jobs:
         with:
           lfs: true
 
-      - uses: actions/cache@v4
+      - name: Cache
+        uses: actions/cache@v4
         with:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
@@ -54,15 +53,17 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy - Itch.io ${{ matrix.template }}
     steps:
-      - uses: actions/download-artifact@v4
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
         with:
           name: GameBuild
           path: build/${{ matrix.channel }}
-      - uses: KikimoraGames/itch-publish@v0.0.3
+      - name: Itch Publish
+        uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
           gameData: ./build/${{ matrix.template }}
-          itchUsername: ${{env.ITCH_USERNAME}}
+          itchUsername: ${{ env.ITCH_USERNAME }}
           itchGameId: ${{ env.ITCH_GAME_ID }}
           buildChannel: ${{ matrix.channel }}
           # buildNumber: ${{ needs.version.outputs.version_hash }}
